@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Bootstrap Core CSS -->
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="../static/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="../static/css/jquery.timepicker.css" rel="stylesheet">
+<script src="../static/js/jquery.timepicker.min.js"></script>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h1>Editar Operación<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h1>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form class="form-horizontal" role="form" action="" method="post">
+           <div class="form-group">
+                <label for="inputDescription" class="col-sm-3 control-label">Descripción</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="inputDescription" id="inputDescription"
+                           value='{{descripcion}}'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Fecha</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="inputFecha" id="inputFecha"
+                           placeholder="Fecha" value="{{fecha}}"> <input type="text" class="form-control" name="inputHora" id="inputHora"
+                           placeholder="Hora" value="{{hora}}">
+                           <script>
+  $( function() {
+    $( "#inputFecha" ).datepicker({dateFormat: 'dd-mm-yy', defaultDate: '{{fecha}}'});
+  } );
+  
+
+$('#inputHora').timepicker();
+  </script>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" value="submit" class="btn btn-success">Guardar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% endblock content %}
+

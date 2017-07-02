@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h1>Anuncios <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h1>
+
+    </div>
+</div>
+<br/>
+<a class="btn btn-primary" href="/create">
+    Crear Anuncio
+    <span style="margin-left: 5px;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+</a>
+<br/>
+<br/>
+
+{% if notes.count() > 0 %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+            <th>Descripción</th>
+            <th>E-mail</th>
+            <th>Fecha de Creaci&oacute;n</th>
+            <th>Caducidad</th>
+            <th>Acciones</th>
+            </thead>
+            <tbody>
+            {% for note in notes %}
+            <tr>
+                <td>{{ note.author }}</td>
+                <td>{{ note.text }}</td>
+                <td>{{ note.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ note.priority }}</td>
+                <td><a class="btn btn-warning" href="/edit/{{ note.key().id() }}">Editar </a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 bg-warning warning_mesagge">
+            <label>No existen Anuncios todavía.</label>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
+
+{% endif %}
+
+        <script type="text/javascript">
+            window.onload = function() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+        </script>
+
+{% endblock content %}

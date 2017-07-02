@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h1>Operaciones <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h1>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+{% if operaciones.count() > 0 %}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+            <th>Descripcion</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            </thead>
+            <tbody>
+            {% for operacion in operaciones %}
+            <tr>
+                <td>{{operacion.descripcion}}</td>
+                <td>{{operacion.date.strftime('%Y-%m-%d')}}</td>
+				<td>{{operacion.date.strftime('%H:%M')}}</td>
+				<td><a class="btn btn-warning" href="/editOperacion/{{ operacion.key().id() }}">Editar</a></td>
+                <td><a class="btn btn-warning" href="/deleteOperacion/{{ operacion.key().id() }}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br />
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 bg-warning warning_mesagge">
+            <label>No existen Operaciones aún</label>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
+{% endif %}
+
+<script type="text/javascript">
+            window.onload = function() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+        </script>
+{% endblock content %}
