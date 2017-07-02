@@ -1,6 +1,6 @@
 # AppEngineWithDjango
 
-## Getting Started
+## Frameworks and cloud used
 Project Web engineering, App Engine + Django(with Python 2.7) + Bootstrapv3+material + Rest + JSON + Maps + Flickr
 
 ### Prerequisites
