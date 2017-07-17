@@ -44,7 +44,7 @@ class ShowAviso(BaseHandler):
         address = "%s, %s ,%s"% (aviso.cod_postal,aviso.calle,aviso.numero)
         
         # HACER LA PETICION A LA API DE FLICKR
-        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=1002d4db6914f828ee4b6641b321b489&tags="+aviso.tag
+        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=INSERT_YOU_KEY&tags="+aviso.tag
         respuesta = urllib2.urlopen(url).read()[14:-1]
         respuesta = json.loads(respuesta)
         respuesta = respuesta["photos"]["photo"]
