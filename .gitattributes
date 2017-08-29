@@ -1,2 +1,2 @@
-static/* linguist-vendored
-templates/*.html linguist-language=Python
+src/static/* linguist-vendored
+src/templates/*.html linguist-language=Python
