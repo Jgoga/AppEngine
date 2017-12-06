@@ -1,4 +1,4 @@
-# AppEngineWithDjango
+# AppEngine
 
 ## Frameworks and cloud used
 Project Web engineering, App Engine + Web2py(with Python 2.7) + Bootstrapv3+ material + Rest + JSON + Maps + Flickr + Template renderer(Jinja2)
